@@ -103,12 +103,52 @@ function showTargetedVerses(verses) {
   renderSection('targeted-verses', verses);
 }
 
+// Theme toggle
+const THEME_KEY = 'theme';
+
+function applyTheme(theme) {
+  const root = document.documentElement;
+  root.setAttribute('data-theme', theme);
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', theme === 'dark' ? '#12161A' : '#a7c8b6');
+  const btn = document.getElementById('theme-toggle');
+  if (btn) {
+    btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    btn.innerHTML = theme === 'dark'
+      ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>'
+      : '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+}
+
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'light');
+  applyTheme(theme);
+}
+
+function setupThemeToggle() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(THEME_KEY, next);
+    applyTheme(next);
+  });
+}
+
 async function initApp() {
   const versesData = await loadVerses();
   renderSection('opening-supplications', versesData.supplications.opening);
   renderSection('core-verses', versesData.coreVerses);
   renderSection('closing-supplications', versesData.supplications.closing);
   setupButtons(versesData);
+
+  // Theme
+  initTheme();
+  setupThemeToggle();
 
   const targetedContainer = document.getElementById('targeted-verses');
   if (targetedContainer) targetedContainer.style.display = 'none';
