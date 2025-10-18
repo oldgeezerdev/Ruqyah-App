@@ -1,0 +1,29 @@
+# Dependencies and build artifacts
+node_modules/
+dist/
+build/
+
+# Logs and caches
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Env and local configs
+.env
+.env.*
+*.local
+
+# Misc
+coverage/
+.sass-cache/
+.cache/
+.tmp/
+
+# Editor folders
+.vscode/
+.idea/

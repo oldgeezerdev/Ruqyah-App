@@ -1,0 +1,12 @@
+{
+  "name": "Ruqyah Healing App",
+  "short_name": "Ruqyah",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#a7c8b6",
+  "description": "تطبيق الرقية الشرعية - عرض آيات وأدعية للشفاء.",
+  "icons": []
+}

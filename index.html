@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="تطبيق الرقية الشرعية - عرض آيات وأدعية للشفاء، مع دعم كامل للغة العربية واتجاه RTL." />
+  <meta name="theme-color" content="#a7c8b6" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <title>Ruqyah Healing App</title>
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Critical external fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Inline favicon (placeholder) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%232E8B57'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='28' fill='%23D4AF37'%3E%F0%9F%8C%B0%3C/text%3E%3C/svg%3E" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="app-container">
+    <header class="site-header" role="banner" aria-label="App Header">
+      <div class="header-inner">
+        <h1 class="app-title" id="app-title">Ruqyah Healing App</h1>
+        <!-- navigation removed per request -->
+      </div>
+    </header>
+
+    <main id="main" role="main">
+      <!-- Opening -->
+      <section id="opening" class="section" aria-labelledby="opening-title">
+        <h2 id="opening-title" class="section-title">Opening</h2>
+        <div id="opening-supplications"></div>
+      </section>
+
+      <!-- Core Ruqyah Verses -->
+      <section id="core" class="section" aria-labelledby="core-title">
+        <h2 id="core-title" class="section-title">Core Ruqyah Verses</h2>
+        <div class="actions" role="group" aria-label="Toggle Core Verses">
+          <button id="toggle-core-btn" class="ruqyah-btn btn" aria-label="Toggle core verses" aria-pressed="false"><i class="fa-regular fa-eye" aria-hidden="true"></i> Show</button>
+        </div>
+        <div id="core-verses"></div>
+      </section>
+
+      <!-- Buttons area -->
+      <section id="buttons" class="section" aria-labelledby="buttons-title">
+        <h2 id="buttons-title" class="section-title">Targeted Verses</h2>
+        <div class="verse-card">
+          <div class="actions" role="group" aria-label="Choose Ruqyah Type">
+            <button id="sihr-btn" class="ruqyah-btn btn" aria-label="Verses for treating sihr"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Sihr</button>
+            <button id="evil-eye-btn" class="ruqyah-btn btn" aria-label="Verses for Evil Eye"><i class="fa-regular fa-eye" aria-hidden="true"></i> Evil Eye</button>
+            <button id="healing-btn" class="ruqyah-btn btn" aria-label="Verses for general healing"><i class="fa-solid fa-heart" aria-hidden="true"></i> Healing</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Targeted verses -->
+      <section id="targeted" class="section" aria-labelledby="targeted-title">
+        <h2 id="targeted-title" class="section-title">Targeted Verses</h2>
+        <div id="targeted-verses"></div>
+      </section>
+
+      <!-- Closing -->
+      <section id="closing" class="section" aria-labelledby="closing-title">
+        <h2 id="closing-title" class="section-title">Closing</h2>
+        <div id="closing-supplications"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <p>Ruqyah Healing App</p>
+      </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+  <noscript>يحتاج هذا التطبيق إلى تشغيل JavaScript لعمل بعض الميزات.</noscript>
+</body>
+</html>

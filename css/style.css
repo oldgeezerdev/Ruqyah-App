@@ -1,0 +1,252 @@
+/* ENHANCED WATERCOLOR PALETTE - More organic, less digital */
+:root {
+  --bg-primary: rgba(250, 252, 250, 0.98); /* Slightly less transparent for better readability */
+  --bg-secondary: rgba(245, 250, 255, 0.9);
+  --accent-soft: rgba(180, 215, 200, 0.7); /* Slightly more saturation for buttons */
+  --accent-warm: rgba(215, 200, 180, 0.6);
+  --text-primary: #5a6572; /* Softer contrast */
+  --text-arabic: #364152; /* Better Arabic readability */
+  --border-soft: rgba(170, 184, 202, 0.4);
+}
+
+/* Global reset and base */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* No horizontal scrolling */
+}
+
+/* Watercolor app container */
+.app-container {
+  background:
+    linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' opacity='0.02'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M20 20h60v60H20z' stroke='gray' fill='none'/%3E%3C/svg%3E");
+  min-height: 100vh;
+}
+
+/* Accessibility: skip link */
+.skip-link {
+  position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus { position: static; width: auto; height: auto; padding: .5rem 1rem; background: #fff; color: var(--text-primary); border-radius: 8px; }
+
+/* Header */
+.site-header {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-soft);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1rem; padding: .75rem 1rem;
+}
+.app-title { font-weight: 700; font-size: 1.25rem; margin: 0; }
+.nav-list { list-style: none; margin: 0; padding: 0; display: flex; gap: .75rem; }
+.nav-list a { color: var(--text-primary); text-decoration: none; font-weight: 600; }
+.nav-list a:hover { text-decoration: underline; }
+.nav-list a:focus-visible { outline: 3px solid var(--border-soft); outline-offset: 2px; }
+
+/* Sections */
+.section {
+  padding: 2rem 1.25rem;
+  background: transparent;
+  position: relative;
+}
+.section-title {
+  font-size: 1.25rem; font-weight: 700; margin: 0 0 .75rem;
+  color: var(--text-primary);
+  border-inline-start: 4px solid var(--border-soft);
+  padding-inline-start: .5rem;
+}
+
+/* IMPROVE VERSE CARD FOR BETTER FOCUS */
+.verse-card {
+  background: rgba(255, 255, 255, 0.85); /* Less transparent for reading */
+  backdrop-filter: blur(15px); /* More blur for watercolor effect */
+  border: 1px solid var(--border-soft);
+  border-radius: 20px; /* Softer, more organic curves */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6); /* Inner glow */
+  padding: 1.5rem;
+  margin: 1rem auto;
+  max-width: 800px;
+  animation: gentleAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* IMPROVE ANIMATIONS */
+@keyframes gentleAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Arabic typography - CRITICAL */
+.arabic-text {
+  font-family: 'Scheherazade New', serif;
+  font-size: 2.25rem; /* Slightly larger for mobile */
+  line-height: 2; /* More breathing room */
+  text-align: center;
+  color: var(--text-arabic);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Subtle text shadow for clarity */
+  font-weight: 500; /* Slightly bolder for better diacritic visibility */
+}
+.quran-verse {
+  font-feature-settings: "calt" 1, "liga" 1; /* Support for diacritics & ligatures */
+  letter-spacing: normal;
+}
+
+/* Notes and helper text */
+.note { text-align: center; margin-top: .5rem; color: var(--text-primary); opacity: 0.85; }
+
+/* Actions / Buttons */
+.actions { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+.ruqyah-btn {
+  min-height: 50px; /* Even more touch-friendly */
+  min-width: 140px;
+  padding: 1rem 1.5rem;
+  border-radius: 16px; /* More organic shape */
+  background: var(--accent-soft);
+  color: var(--text-primary);
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.ruqyah-btn i { margin-inline-start: .5rem; }
+.ruqyah-btn:focus-visible { outline: 3px solid var(--border-soft); outline-offset: 2px; }
+.ruqyah-btn:hover {
+  background: rgba(180, 215, 200, 0.85);
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Footer */
+.site-footer { text-align: center; padding: 1rem; color: var(--text-primary); opacity: 0.8; }
+
+/* Responsive tweaks */
+@media (min-width: 768px) {
+  .app-title { font-size: 1.5rem; }
+  .section-title { font-size: 1.35rem; }
+  .arabic-text { font-size: 2.25rem; }
+}
+
+/* Translation styling - subtle and supportive */ 
+.translation.subtle { 
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+  font-size: 0.9rem; 
+  line-height: 1.5; 
+  color: var(--text-primary); 
+  opacity: 0.7; 
+  text-align: center; 
+  margin-top: 1rem; 
+  padding-top: 1rem; 
+  border-top: 1px solid var(--border-soft); 
+  font-style: italic; 
+  max-width: 600px; 
+  margin-left: auto; 
+  margin-right: auto; 
+  direction: ltr; 
+  unicode-bidi: isolate; 
+} 
+ 
+/* Ensure Arabic text remains prominent */ 
+.arabic-text { 
+  font-family: 'Scheherazade New', serif; 
+  font-size: 2.25rem; 
+  line-height: 2; 
+  text-align: center; 
+  color: var(--text-arabic); 
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05); 
+  font-weight: 500; 
+  margin-bottom: 0.5rem; 
+} 
+ 
+/* Enhanced verse card for better focus */ 
+.verse-card { 
+  background: rgba(255, 255, 255, 0.85); 
+  backdrop-filter: blur(15px); 
+  border: 1px solid var(--border-soft); 
+  border-radius: 20px; 
+  box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.08), 
+      inset 0 1px 0 rgba(255, 255, 255, 0.6); 
+  padding: 1.5rem; 
+  margin: 1.5rem auto; 
+  max-width: 800px; 
+  animation: gentleAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; 
+} 
+ 
+/* Gentle animation for verse cards */ 
+@keyframes gentleAppear { 
+  from { 
+      opacity: 0; 
+      transform: translateY(8px) scale(0.98); 
+  } 
+  to { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+  } 
+} 
+ 
+/* Section title styling */ 
+.section-title { 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  margin: 0 0 1.5rem; 
+  color: var(--text-primary); 
+  text-align: center; 
+  position: relative; 
+} 
+ 
+.section-title::after { 
+  content: ''; 
+  position: absolute; 
+  bottom: -0.5rem; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 60px; 
+  height: 3px; 
+  background: var(--accent-soft); 
+  border-radius: 2px; 
+} 
+ 
+/* Responsive adjustments */ 
+@media (max-width: 768px) { 
+  .arabic-text { 
+    font-size: 1.8rem; 
+    line-height: 1.8; 
+  } 
+  
+  .verse-card { 
+    padding: 1rem; 
+    margin: 1rem auto; 
+  } 
+  
+  .translation.subtle { 
+    font-size: 0.85rem; 
+    margin-top: 0.75rem; 
+    padding-top: 0.75rem; 
+  } 
+}
