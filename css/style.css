@@ -294,3 +294,8 @@ body {
 #theme-toggle:hover, #theme-toggle:active { background: transparent; border: none; }
 #theme-toggle:focus, #theme-toggle:focus-visible { outline: none; }
 html[data-theme="dark"] #theme-toggle { color: var(--text-primary); }
+
+/* Responsive container fix: ensure full-width on mobile */
+html, body { width: 100%; height: 100%; }
+.app-container { width: 100%; max-width: 100%; }
+main { width: 100%; }
